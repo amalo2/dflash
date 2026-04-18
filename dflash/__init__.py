@@ -7,6 +7,8 @@ __all__ = [
 
 # Personal note: __getattr__ is used for lazy imports to avoid loading
 # heavy dependencies (torch, etc.) until they are actually needed.
+# Note: __all__ is still defined above so that tools like tab-completion
+# and static analyzers know what this package exports.
 def __getattr__(name):
     if name == "load_and_process_dataset":
         from .benchmark import load_and_process_dataset
